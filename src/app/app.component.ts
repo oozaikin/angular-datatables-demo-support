@@ -15,12 +15,12 @@ export class AppComponent {
     //  this.loadScript('../app/assets/dataTables.checkboxes_CUSTOM.js');
      this.loadCss('https://cdn.datatables.net/select/1.3.1/css/select.dataTables.css');
      this.loadCss('https://cdn.datatables.net/scroller/2.0.1/css/scroller.dataTables.css');
-     this.loadCss('https://cdn.datatables.net/rowgroup/1.1.1/css/rowGroup.dataTables.css');
+     //this.loadCss('https://cdn.datatables.net/rowgroup/1.1.1/css/rowGroup.dataTables.css');
      this.loadScript('https://cdn.datatables.net/select/1.3.1/js/dataTables.select.js');
      this.loadScript('https://cdn.datatables.net/scroller/2.0.1/js/dataTables.scroller.js');
-     this.loadScript('https://cdn.datatables.net/rowgroup/1.1.1/js/dataTables.rowGroup.js');
+     //this.loadScript('https://cdn.datatables.net/rowgroup/1.1.1/js/dataTables.rowGroup.js');
      //this.mainDocHead.parent().parent()[0].location.reload() 
-  }  
+  }   
 
   public loadScript(url: string) {
     
