@@ -125,9 +125,9 @@ reloadData(){
   // Adding empty last row
   jQuery('table#dataTable tbody').append(`<tr style='pointer-events: none;'><td colspan='16' class='lastCell100' style='height:28px'></td></tr>`);
   // (<any>this.dataTableApi.rows()).deselect();   
-  setTimeout(()=> {
-    this.dataTableApi.columns.adjust();
-    (<any>this.dataTableApi).scroller.measure();}, 100 );
+  // setTimeout(()=> {
+  //   this.dataTableApi.columns.adjust();
+  //   (<any>this.dataTableApi).scroller.measure();}, 100 );
 
   
   console.log(`Total Reloading Time: ${new Date().getTime() - reloadStarts} Ms`);
