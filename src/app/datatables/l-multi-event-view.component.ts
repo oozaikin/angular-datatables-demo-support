@@ -223,13 +223,13 @@ public ngOnInit() {
   
     this.dtOptions = {
       data: this.inventories,
-      paging: false,      
+      paging: true,      
       pageLength: 60,
       deferRender: false,
-      // scroller: {
-      //   displayBuffer: 20,
-      //   boundaryScale: 0.2
-      // },
+      scroller: {
+        displayBuffer: 20,
+        boundaryScale: 0.2
+      },
       scrollY: '66vh',
       scrollCollapse: true,
       scrollX: false,      
