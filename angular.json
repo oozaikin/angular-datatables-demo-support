@@ -23,12 +23,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+               "src/assets/dataTables.checkboxes.css"
             ],
             "scripts": [
-              "./node_modules/datatables.net-select/js/dataTables.select.min.js",
-              "./node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.js",
-              "./node_modules/datatables.net-scroller/js/dataTables.scroller.min.js"]
+              "node_modules/datatables.net-select/js/dataTables.select.min.js",
+              "node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.js",
+              "node_modules/datatables.net-scroller/js/dataTables.scroller.min.js",
+              ]
           },
           "configurations": {
             "production": {

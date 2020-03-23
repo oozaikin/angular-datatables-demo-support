@@ -9,33 +9,18 @@ export class AppComponent {
   name = 'Angular';
 
   ngOnInit() {
-    let table = $('#example').DataTable({
-      drawCallback: () => {
-        $('.paginate_button.next').on('click', () => {
-            this.nextButtonClickEvent();
-          });
-      }
-    });
-  }
+     this.loadScript('../app/assets/dataTables.checkboxes_CUSTOM.js');
+     this.loadScript('https://cdn.datatables.net/select/1.3.1/js/dataTables.select.js');
+  }  
 
-  buttonInRowClick(event: any): void {
-    event.stopPropagation();
-    console.log('Button in the row clicked.');
-  }
-
-  wholeRowClick(): void {
-    console.log('Whole row clicked.');
-  }
-
-  nextButtonClickEvent(): void {
-    //do next particular records like  101 - 200 rows.
-    //we are calling to api
-
-    console.log('next clicked')
-  }
-  previousButtonClickEvent(): void {
-    //do previous particular the records like  0 - 100 rows.
-    //we are calling to API
+  public loadScript(url: string) {
+    const body = <HTMLDivElement> document.body;
+    const script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = url;
+    script.async = false;
+    script.defer = true;
+    body.appendChild(script);
   }
 
 
