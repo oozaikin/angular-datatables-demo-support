@@ -496,6 +496,7 @@ public ngOnInit() {
 
     this.inventories =(Array.from(inventoriesData, (el)=> TicketGroupWithEvent.fromApi(el)));
     this.reloadData();  
+    
 
   }  
 
