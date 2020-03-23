@@ -17,6 +17,7 @@ import {
 
 import { takeUntil, distinctUntilChanged, last, groupBy } from 'rxjs/operators';
 import * as moment from 'moment';
+import inventoriesData from '../data/inventories.json'
 //import jQuery from 'jquery' 
 
 import { TicketGroupWithEvent } from './model/ticketGroupWithEvent';
