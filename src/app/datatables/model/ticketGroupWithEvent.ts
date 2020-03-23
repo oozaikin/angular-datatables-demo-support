@@ -8,7 +8,7 @@ export class TicketGroupWithEvent extends TicketGroup {
    public static fromApi(apiContract: TicketGroupWithEventApiContract) {
         const ticketGroup = <TicketGroupWithEvent>TicketGroup.fromApi(apiContract);
         ticketGroup.eventName = apiContract.EventName;
-        ticketGroup.eventDateTime = moment(apiContract.EventDateTime);
+        ticketGroup.eventDateTime = apiContract.EventDateTime;
         ticketGroup.venueName = apiContract.VenueName;
         ticketGroup.primaryEventName = apiContract.PrimaryEventName;
         ticketGroup.secondaryEventName = apiContract.SecondaryEventName;
@@ -30,7 +30,7 @@ export class TicketGroupWithEvent extends TicketGroup {
         return ticketGroup;
       }
       eventName: string;
-      eventDateTime: moment.Moment;
+      eventDateTime: string;
       venueName: string;
       primaryEventName: string;
       secondaryEventName: string;

@@ -1,8 +1,9 @@
-import * as moment from 'moment';
+
 import { TicketGroup as TicketGroupApiContract } from '../apiContract/ticketGroup';
 import { DeliveryTypeMap } from './deliveryType.enum';
 import { TicketGroupSplitsMap } from './ticketGroupSplits.enum';
 import { TicketGroupStatus, TicketGroupStatusMap } from './ticketGroupStatus.enum';
+import * as moment from 'moment';
 
 export default class TicketGroup {
 public static Empty() {
@@ -66,8 +67,8 @@ public static fromApi(apiContract: TicketGroupApiContract) {
     ticketGroup.rowAlias = apiContract.RowAlias;
     ticketGroup.internalNote = apiContract.InternalNote;
     ticketGroup.externalNote = apiContract.ExternalNote;
-    ticketGroup.inHandDate = apiContract.InhandDate ?
-      moment(apiContract.InhandDate).format('L') : null;
+    ticketGroup.inHandDate = '01/01/2222'; 
+      //moment(apiContract.InhandDate).format('L') : null;
     ticketGroup.quantity = apiContract.Quantity;
     ticketGroup.productionID = apiContract.ProductionID;
     ticketGroup.blockId = apiContract.BlockID;
