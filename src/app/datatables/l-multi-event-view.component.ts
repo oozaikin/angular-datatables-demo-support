@@ -17,7 +17,7 @@ import {
 
 import { takeUntil, distinctUntilChanged, last, groupBy } from 'rxjs/operators';
 import * as moment from 'moment';
-import inventoriesData from '../data/inventories.json'
+import inventoriesData from './data/inventories.json'
 //import jQuery from 'jquery' 
 
 import { TicketGroupWithEvent } from './model/ticketGroupWithEvent';
@@ -494,7 +494,8 @@ public ngOnInit() {
         console.log( `Redraw took at: ${new Date().getTime()-this.startLoadingTime} mS for ${this.dataTableApi.rows().count()} Rows` );
     } );    
 
-    
+    this.inventories = Array.from(inventoriesData);
+    this.reloadData();  
 
   }  
 

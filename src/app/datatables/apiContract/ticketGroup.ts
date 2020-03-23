@@ -1,6 +1,5 @@
-import { TicketGroupBlock } from './ticketGroupBlock';
-import { TicketGroup as TicketGroupViewModel } from '../../viewModels';
-import { Disclosure } from '../buyIn/ticketGroup/disclosure';
+
+
 
 export class TicketGroup {
   public TicketGroupID: number;
@@ -26,7 +25,7 @@ export class TicketGroup {
   public DeliveryTypeId: number | null;
   public IsInstantDelivery: boolean;
   public SortRank: number | null;
-  public Block: TicketGroupBlock | null;
+  public Block: null;
   public StatusTypeId: number | null;
   public Splits: number | null;
   public IsConsignment: boolean;
@@ -38,35 +37,9 @@ export class TicketGroup {
   public AverageTicketFace: number;
   public MaskSeat: boolean;
   public IsConsecutiveSeating: boolean;
-  public Disclosures: Disclosure[];
+  public Disclosures: null;
   public BlockID?: number;
 
 }
 
-export class TicketGroupPriceModel {
-  public static fromView(viewModel: TicketGroupViewModel) {
-    const ticketGroup = new TicketGroupPriceModel();
-    ticketGroup.TicketGroupID = viewModel.ticketGroupID;
-    ticketGroup.MarketPrice = viewModel.price;
-    ticketGroup.ProductionID = viewModel.productionID;
-    return ticketGroup;
-  }
 
-  public TicketGroupID: number;
-  public MarketPrice: number;
-  public ProductionID: number;
-}
-
-export class TicketGroupNetworkTypesModel {
-  public TicketGroupIDs: number[];
-  public Shared: number;
-  public Mask: number;
-  public UpdateBlocks: TicketGroupBlock[];
-  public ProductionID: number;
-}
-
-export class TicketGroupSplitsModel {
-  public BlockID: number;
-  public ProductionID: number;
-  public SplitOption: number[];
-}

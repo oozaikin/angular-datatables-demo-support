@@ -1,4 +1,8 @@
 import * as moment from 'moment';
+import { TicketGroup as TicketGroupApiContract } from '../apiContracts/ticketGroup';
+import { DeliveryTypeMap } from './deliveryType.enum';
+import { TicketGroupSplitsMap } from './ticketGroupSplits.enum';
+import { TicketGroupStatus, TicketGroupStatusMap } from './ticketGroupStatus.enum';
 
 export default class TicketGroup {
 public static Empty() {
@@ -47,7 +51,61 @@ public static Empty() {
     return ticketGroup;
   }
   
+public static fromApi(apiContract: TicketGroupApiContract) {
+    const ticketGroup = new TicketGroup();
+    ticketGroup.ticketGroupID = apiContract.TicketGroupID;
+    ticketGroup.stubhubEventId = apiContract.StubhubEventId;
+    ticketGroup.cost = apiContract.Cost;
+    ticketGroup.price = apiContract.MarketPrice ?
+      apiContract.MarketPrice :
+      apiContract.Price;
+    ticketGroup.startSeat = apiContract.StartSeat;
+    ticketGroup.endSeat = apiContract.EndSeat;
+    ticketGroup.section = apiContract.Section;
+    ticketGroup.row = apiContract.Row;
+    ticketGroup.rowAlias = apiContract.RowAlias;
+    ticketGroup.internalNote = apiContract.InternalNote;
+    ticketGroup.externalNote = apiContract.ExternalNote;
+    ticketGroup.inHandDate = apiContract.InhandDate ?
+      moment(apiContract.InhandDate).format('L') : null;
+    ticketGroup.quantity = apiContract.Quantity;
+    ticketGroup.productionID = apiContract.ProductionID;
+    ticketGroup.blockId = apiContract.BlockID;
+    ticketGroup.barcodesCount = apiContract.BarcodesCount;
+    ticketGroup.documentsCount = apiContract.DocumentsCount;
+    ticketGroup.isInstantDelivery = apiContract.IsInstantDelivery;
+    ticketGroup.pdf = apiContract.Pdf;
+    ticketGroup.userShNetworks = apiContract.UserShNetworks;
+    ticketGroup.userShNetworksList = apiContract.UserShNetworksList;
+    ticketGroup.deliveryTypeId = apiContract.DeliveryTypeId;
+    ticketGroup.seatsRange = `${ticketGroup.startSeat}-${ticketGroup.endSeat}`;
+    ticketGroup.isConsignment = apiContract.IsConsignment;
+    ticketGroup.stubhubListingId = apiContract.StubhubListingId;
+    ticketGroup.stubhubAccountId = apiContract.StubhubAccountId;
+    ticketGroup.sbAccount = apiContract.SBAccount;
+    ticketGroup.invoice = apiContract.Invoice;
+    ticketGroup.client = apiContract.Client;
+    ticketGroup.face = apiContract.AverageTicketFace;
+    ticketGroup.statusTypeId = apiContract.StatusTypeId;
+    ticketGroup.maskSeats = apiContract.MaskSeat;
+    ticketGroup.isConsecutiveSeating = apiContract.IsConsecutiveSeating;
+    ticketGroup.disclosureNames = !!apiContract.Disclosures ? apiContract.Disclosures.map(y => y.DisclosureName).join(',') : '';
+    if (apiContract.StatusTypeId) {
+      ticketGroup.status = TicketGroupStatusMap.get(apiContract.StatusTypeId);
+    }
 
+    if (apiContract.DeliveryTypeId) {
+      ticketGroup.deliveryType = DeliveryTypeMap.get(apiContract.DeliveryTypeId);
+    }
+
+    if (apiContract.Splits) {
+      ticketGroup.splitsTypeId = apiContract.Splits;
+      ticketGroup.splits = TicketGroupSplitsMap.get(apiContract.Splits);
+    }   
+
+
+    return ticketGroup;
+  }
   public ticketGroupID: number;
   public stubhubEventId: number | null;
   public cost: number;
