@@ -21,7 +21,7 @@ import inventoriesData from './data/inventories.json'
 //import jQuery from 'jquery' 
 
 import { TicketGroupWithEvent } from './model/ticketGroupWithEvent';
-
+import { TicketGroupWithEvent as TicketGroupWithEventApiContract } from './apiContract/ticketGroupWithEvent';
 import { TicketGroup } from './model/ticketGroup';
 
 import { CurrencyPipe } from '@angular/common';
@@ -494,7 +494,7 @@ public ngOnInit() {
         console.log( `Redraw took at: ${new Date().getTime()-this.startLoadingTime} mS for ${this.dataTableApi.rows().count()} Rows` );
     } );    
 
-    this.inventories = Array.from(inventoriesData);
+    this.inventories =(Array.from(inventoriesData, (el)=> TicketGroupWithEvent.fromApi(el)));
     this.reloadData();  
 
   }  

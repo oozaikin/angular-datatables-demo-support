@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import { TicketGroup as TicketGroupApiContract } from '../apiContracts/ticketGroup';
+import { TicketGroup as TicketGroupApiContract } from '../apiContract/ticketGroup';
 import { DeliveryTypeMap } from './deliveryType.enum';
 import { TicketGroupSplitsMap } from './ticketGroupSplits.enum';
 import { TicketGroupStatus, TicketGroupStatusMap } from './ticketGroupStatus.enum';
